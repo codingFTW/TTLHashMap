@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c4e6984-2a2f-4bfe-9981-40902e3ecf64" name="Changes" comment="initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athingforcode/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athingforcode/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/athingforcode/TTLHashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/athingforcode/TTLHashMap.java" afterDir="false" />
-    </list>
+    <list default="true" id="8c4e6984-2a2f-4bfe-9981-40902e3ecf64" name="Changes" comment="add javadoc comments, and minor fixed and refactors." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,12 +74,39 @@
       <option name="project" value="LOCAL" />
       <updated>1727051444365</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="In put method, we can specify action to be executed when item is expired &#10;&#10;Add shutdown method to TTL map to shutdown the underlying scheduled executor">
+      <option name="closed" value="true" />
+      <created>1727057984446</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1727057984446</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add APACHE 2.0 license">
+      <option name="closed" value="true" />
+      <created>1727060051832</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1727060051832</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add javadoc comments, and minor fixed and refactors.">
+      <option name="closed" value="true" />
+      <created>1727061193902</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727061193902</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="In put method, we can specify action to be executed when item is expired &#10;&#10;Add shutdown method to TTL map to shutdown the underlying scheduled executor" />
+    <MESSAGE value="add APACHE 2.0 license" />
+    <MESSAGE value="add javadoc comments, and minor fixed and refactors." />
+    <option name="LAST_COMMIT_MESSAGE" value="add javadoc comments, and minor fixed and refactors." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
