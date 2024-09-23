@@ -1,9 +1,11 @@
 package com.athingforcode;
 
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.function.BiConsumer;
 
 public class TTLHashMap<K, V> {
     private final ConcurrentHashMap<K, Entry<K, V>> map;
@@ -14,10 +16,18 @@ public class TTLHashMap<K, V> {
         this.scheduler = Executors.newSingleThreadScheduledExecutor();
     }
 
-    public void put(K key, V value, long ttl, TimeUnit unit) {
+    public void shutdown() {
+        scheduler.shutdownNow();
+    }
+
+    public void put(K key, V value, long ttl, TimeUnit unit, BiConsumer<K, V> actionWhenExpired) {
+        Objects.requireNonNull(key);
         Entry<K, V> entry = new Entry<>(key, value, ttl, unit);
         map.put(key, entry);
-        setRemovalSchedule(entry);
+        //if ttl is negative then entry is cosidered non expiring
+        if(ttl >= 0) {
+            setRemovalSchedule(entry,actionWhenExpired);
+        }
     }
 
     public V get(K key) {
@@ -33,9 +43,12 @@ public class TTLHashMap<K, V> {
         map.remove(key);
     }
 
-    private void setRemovalSchedule(Entry<K, V> entry) {
+    private void setRemovalSchedule(Entry<K, V> entry, BiConsumer<K, V> actionWhenExpired) {
         scheduler.schedule(() -> {
             map.remove(entry.getKey());
+            if(actionWhenExpired != null) {
+                actionWhenExpired.accept(entry.getKey(), entry.getValue());
+            }
         }, entry.getTTL(), entry.getTtlUnit());
     }
 
