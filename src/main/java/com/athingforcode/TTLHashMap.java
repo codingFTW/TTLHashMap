@@ -36,7 +36,7 @@ public class TTLHashMap<K, V> {
      * @param value               the value to be associated with the specified key
      * @param ttl                 the time to live for the entry
      * @param unit                the time unit of the ttl argument
-     * @param actionWhenExpired   the action to be performed when the entry expires
+     * @param actionWhenExpired   the action to be performed when the entry expires. Pass java.util.function.BiConsumer that receives key and values as its inputs
      * @throws NullPointerException if the key or unit is null
      *
      * @implNote If ttl is negative, the entry is considered non-expiring.
@@ -48,7 +48,7 @@ public class TTLHashMap<K, V> {
         Entry<K, V> entry = new Entry<>(key, value, ttl, unit);
         map.put(key, entry);
         /*
-            if ttl is negative then entry is cosidered non expiring
+            if ttl is negative then entry is considered non expiring
         * */
         if(ttl >= 0) {
             setRemovalSchedule(entry,actionWhenExpired);

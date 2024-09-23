@@ -10,8 +10,10 @@ TTLHashMap is a Java library that provides a thread-safe hash map implementation
 - Support for custom actions when entries expire
 - Flexible TTL units (seconds, minutes, hours, etc.)
 
-## Usage
+## Requirements
+Use Java 8+
 
+## Usage
 Here's a quick example of how to use TTLHashMap:
 
 ```java
